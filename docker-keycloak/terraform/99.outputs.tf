@@ -32,17 +32,17 @@ output "container_image_keycloak_name" {
 # NETWORK
 ################################################
 
-output "network_name" {
-  value = docker_network.vault-ent-network.name
-}
+# output "network_name" {
+#   value = docker_network.vault-ent-network.name
+# }
 
-output "network_id" {
-  value = docker_network.vault-ent-network.id
-}
+# output "network_id" {
+#   value = docker_network.vault-ent-network.id
+# }
 
-output "network_ipam" {
-  value = docker_network.vault-ent-network.ipam_config
-}
+# output "network_ipam" {
+#   value = docker_network.vault-ent-network.ipam_config
+# }
 
 ################################################
 # POSTGRESQL INSTANCES

@@ -8,6 +8,18 @@
 # }
 
 ################################################
+# NETWORK VARIABLES
+
+
+variable "vault-ent-network" {
+  type        = string
+  description = "Specify name for your Docker Network"
+  sensitive   = false
+  default     = "vault-ent-network"
+}
+
+
+################################################
 # POSTGRESQL VARIABLES
 
 variable "path_postgresql_data" {
