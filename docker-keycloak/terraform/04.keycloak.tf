@@ -11,7 +11,7 @@ resource "docker_image" "keycloak" {
 
 resource "docker_container" "keycloak" {
   depends_on = [
-    docker_network.keycloak-network,
+    docker_network.vault-ent-network,
     docker_container.postgresql
   ]
   image = docker_image.keycloak.name
@@ -20,9 +20,9 @@ resource "docker_container" "keycloak" {
     add = ["IPC_LOCK"]
   }
   networks_advanced {
-    name         = docker_network.keycloak-network.name
+    name         = docker_network.vault-ent-network.name
     aliases      = ["keycloak"]
-    ipv4_address = "10.89.0.100"
+    ipv4_address = "10.88.0.100"
   }
   ports {
     internal = var.docker_port_internal_keycloak
