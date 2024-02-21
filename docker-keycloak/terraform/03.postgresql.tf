@@ -7,7 +7,7 @@ resource "docker_image" "postgresql" {
 
 resource "docker_container" "postgresql" {
   depends_on = [
-    docker_network.vault-ent-network
+    # docker_network.vault-ent-network
   ]
   image = docker_image.postgresql.name
   name  = var.container_name_postgresql
@@ -15,7 +15,8 @@ resource "docker_container" "postgresql" {
     add = ["IPC_LOCK"]
   }
   networks_advanced {
-    name         = docker_network.vault-ent-network.name
+    # name         = docker_network.vault-ent-network.name
+    name         = var.vault-ent-network
     aliases      = ["postgresql"]
     ipv4_address = "10.88.0.101"
   }
