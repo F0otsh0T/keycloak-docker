@@ -27,7 +27,7 @@ ACTION ?= plan
 # CLEAN
 ########################
 clean-keycloak: #target ## Clean Keycloak
-	@terraform -chdir=./terraform destroy -auto-approve
+	@terraform -chdir=./terraform init && terraform -chdir=./terraform destroy -auto-approve
 
 clean-keycloak-volume: #target ## Clean Keycloak Volume
 	@rm -rf /var/tmp/volume/keycloak/*
@@ -44,7 +44,8 @@ clean-all: clean-keycloak-all #target ## Clean All
 keycloak-all: keycloak-setup #target ## All Setup Targets for Keycloak Services
 
 keycloak-setup: #target ## Spin Up Keycloak Resources
-	@terraform -chdir=./terraform init && terraform -chdir=./terraform apply -auto-approve
+	@terraform -chdir=./terraform init && terraform -chdir=./terraform apply -auto-approve && \
+	terraform -chdir=./terraform output -json > keycloak.json
 
 ########################
 # HELP
