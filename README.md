@@ -48,6 +48,7 @@ This spins up:
   - **Password**: `passw0rd`
 - Network:
   - e.g. **[`./docker-keycloak/terraform/01.network.tf`](./docker-keycloak/terraform/01.network.tf)**
+  - ***NOTE***: You will need to uncomment the lines in the above TF if the `vault-ent-network` does not already exist as defined in your environment.
   - Access Keycloak via browser at http://localhost:8080
 - Storage:
   - e.g. **[`./docker-keycloak/terraform/02.storage.tf`](./docker-keycloak/terraform/02.storage.tf)**
